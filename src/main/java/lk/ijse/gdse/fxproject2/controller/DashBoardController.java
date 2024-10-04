@@ -31,7 +31,7 @@ public class DashBoardController implements Initializable {
 
     @FXML
     void openCustomerPanel(ActionEvent event) {
-            navigation("/view/CustomerPanel.fxml");
+        navigation("/view/CustomerPanel.fxml");
     }
 
     @FXML
@@ -41,7 +41,7 @@ public class DashBoardController implements Initializable {
 
     @FXML
     void openOrdersPanel(ActionEvent event) {
-            navigation("/view/OrdersPanel.fxml");
+        navigation("/view/OrdersPanel.fxml");
     }
 
     private  void navigation(String filePath) {

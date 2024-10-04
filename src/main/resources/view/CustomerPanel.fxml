@@ -27,13 +27,13 @@
             <Button fx:id="btnReset" mnemonicParsing="false" text="Reset" />
             <Button fx:id="btnDelete" alignment="CENTER" mnemonicParsing="false" text="Delete" />
             <Button fx:id="btnUpdate" mnemonicParsing="false" text="Update" />
-            <Button fx:id="btnSave" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" text="Save" />
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveCustomer" prefHeight="26.0" prefWidth="58.0" text="Save" />
          </children>
       </HBox>
       <HBox layoutX="19.0" layoutY="14.0" prefHeight="26.0" prefWidth="456.0" spacing="55.0">
          <children>
             <Label prefHeight="26.0" prefWidth="71.0" text="customer id" />
-            <Label layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="77.0" text="1" />
+            <Label fx:id="lblcustomerid" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="77.0" text="1" />
          </children>
       </HBox>
       <HBox layoutX="19.0" layoutY="58.0" prefHeight="26.0" prefWidth="456.0" spacing="55.0">
