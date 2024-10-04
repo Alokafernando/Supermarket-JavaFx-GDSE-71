@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane prefHeight="480.0" prefWidth="484.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.fxproject2.controller.CustomerController">
+   <children>
+      <TableView fx:id="custTabel" layoutX="26.0" layoutY="286.0" prefHeight="200.0" prefWidth="456.0">
+        <columns>
+          <TableColumn fx:id="custId" prefWidth="84.79998588562012" text="Customer ID" />
+          <TableColumn fx:id="name" prefWidth="85.59998321533203" text="Name" />
+            <TableColumn fx:id="nic" prefWidth="94.4000244140625" text="NIC" />
+            <TableColumn fx:id="email" prefWidth="81.60003662109375" text="Email" />
+            <TableColumn fx:id="phone" prefWidth="107.20001220703125" text="Phone" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER" layoutY="226.0" prefHeight="42.0" prefWidth="494.0" spacing="20.0">
+         <children>
+            <Button fx:id="btnGenerateReport" mnemonicParsing="false" prefHeight="26.0" prefWidth="116.0" text="Generate Report" />
+            <Button fx:id="btnReset" mnemonicParsing="false" text="Reset" />
+            <Button fx:id="btnDelete" alignment="CENTER" mnemonicParsing="false" text="Delete" />
+            <Button fx:id="btnUpdate" mnemonicParsing="false" text="Update" />
+            <Button fx:id="btnSave" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" text="Save" />
+         </children>
+      </HBox>
+      <HBox layoutX="19.0" layoutY="14.0" prefHeight="26.0" prefWidth="456.0" spacing="55.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="71.0" text="customer id" />
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="77.0" text="1" />
+         </children>
+      </HBox>
+      <HBox layoutX="19.0" layoutY="58.0" prefHeight="26.0" prefWidth="456.0" spacing="55.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="71.0" text="Name" />
+            <TextField fx:id="txtName" prefHeight="26.0" prefWidth="303.0" promptText="customer">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox layoutX="19.0" layoutY="94.0" prefHeight="26.0" prefWidth="456.0" spacing="55.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="71.0" text="NIC" />
+            <TextField fx:id="txtNIC" prefHeight="26.0" prefWidth="303.0" promptText="00000000000">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox layoutX="19.0" layoutY="134.0" prefHeight="26.0" prefWidth="456.0" spacing="55.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="71.0" text="Email" />
+            <TextField fx:id="txtEmail" prefHeight="26.0" prefWidth="303.0" promptText="customer@gmail.com">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox layoutX="22.0" layoutY="183.0" prefHeight="26.0" prefWidth="456.0" spacing="55.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="71.0" text="Phone" />
+            <TextField fx:id="txtPhone" prefHeight="26.0" prefWidth="303.0" promptText="0777777777">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TextField>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
