@@ -1,3 +1,4 @@
+
 package lk.ijse.gdse.fxproject2.controller;
 
 import javafx.event.ActionEvent;
@@ -6,9 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.gdse.fxproject2.dto.CustomerDto;
+import lk.ijse.gdse.fxproject2.dto.tm.CustomerTM;
 import lk.ijse.gdse.fxproject2.model.CustomerModel;
 
-import javax.swing.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -31,25 +32,25 @@ public class CustomerController implements Initializable {
     private Button btnUpdate;
 
     @FXML
-    private TableColumn<?, ?> custId;
+    private TableColumn<CustomerTM, String> custId;
 
     @FXML
-    private TableView<?> custTabel;
+    private TableView<CustomerTM> custTabel;
 
     @FXML
-    private TableColumn<?, ?> email;
+    private TableColumn<CustomerTM, String> email;
 
     @FXML
     private Label lblcustomerid;
 
     @FXML
-    private TableColumn<?, ?> name;
+    private TableColumn<CustomerTM, String> name;
 
     @FXML
-    private TableColumn<?, ?> nic;
+    private TableColumn<CustomerTM, String> nic;
 
     @FXML
-    private TableColumn<?, ?> phone;
+    private TableColumn<CustomerTM, String> phone;
 
     @FXML
     private TextField txtEmail;
@@ -65,34 +66,39 @@ public class CustomerController implements Initializable {
 
     CustomerModel customerModel = new CustomerModel();
 
-    @FXML
-    void saveCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {
+   @FXML
+   void saveCustomer(ActionEvent event) throws SQLException, ClassNotFoundException {
 
-        String customerId = lblcustomerid.getText();
-        String name = txtName.getText();
-        String nic = txtNIC.getText();
-        String email = txtEmail.getText();
-        String phone = txtPhone.getText();
+       String customerId = lblcustomerid.getText();
+       String name = txtName.getText();
+       String nic = txtNIC.getText();
+       String email = txtEmail.getText();
+       String phone = txtPhone.getText();
 
-        CustomerDto customerDto =  new CustomerDto(
-                customerId,
-                name,
-                nic,
-                email,
-                phone);
+       CustomerDto customerDto =  new CustomerDto(
+               customerId,
+               name,
+               nic,
+               email,
+               phone);
 
-        boolean isSaved = customerModel.saveCustomer(customerDto);
-        if (isSaved) {
-            loadNextCustomer();
-            txtName.setText("");
-            txtNIC.setText("");
-            txtEmail.setText("");
-            txtPhone.setText("");
-            new Alert(Alert.AlertType.INFORMATION, "Customer Saved", ButtonType.OK).show();
-        }else{
-            new Alert(Alert.AlertType.ERROR, "Fail", ButtonType.OK).show();
-        }
+       boolean isSaved = customerModel.saveCustomer(customerDto);
+       if (isSaved) {
+           loadNextCustomer();
+           txtName.setText("");
+           txtNIC.setText("");
+           txtEmail.setText("");
+           txtPhone.setText("");
+           new Alert(Alert.AlertType.INFORMATION, "Customer Saved", ButtonType.OK).show();
+       }else{
+           new Alert(Alert.AlertType.ERROR, "Fail", ButtonType.OK).show();
+       }
 
+   }
+
+    private void loadNextCustomer() throws SQLException, ClassNotFoundException {
+        String nextCustomerId = customerModel.getNextCustomerId();
+        lblcustomerid.setText(nextCustomerId);
     }
 
     @Override
@@ -100,21 +106,16 @@ public class CustomerController implements Initializable {
         custId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         nic.setCellValueFactory(new PropertyValueFactory<>("nic"));
-        phone.setCellValueFactory(new PropertyValueFactory<>("email"));
-        email.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
 
         try{
             loadNextCustomer();
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Faild to load customer id");
+            new Alert(Alert.AlertType.ERROR, "Customer Not Saved").show();
         }
-
-
     }
 
-    public void loadNextCustomer() throws  ClassNotFoundException, SQLException {
-        String nextCustomerId = customerModel.getNextCustomerId();
-        lblcustomerid.setText(nextCustomerId);
-    }
 }
+
