@@ -1,13 +1,12 @@
 package lk.ijse.gdse.fxproject2.dto;
 
-
 import lombok.*;
 
+@NoArgsConstructor
+@ToString
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
-@ToString
 
 public class CustomerDto {
     private String customerId;

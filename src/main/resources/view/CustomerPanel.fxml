@@ -8,10 +8,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.fxproject2.controller.CustomerController">
    <children>
-      <TableView fx:id="custTabel" layoutX="26.0" layoutY="286.0" prefHeight="200.0" prefWidth="456.0">
+      <TableView fx:id="custTabel" layoutX="26.0" layoutY="286.0" onMouseClicked="#s" prefHeight="200.0" prefWidth="456.0">
         <columns>
           <TableColumn fx:id="custId" prefWidth="84.79998588562012" text="Customer ID" />
           <TableColumn fx:id="name" prefWidth="85.59998321533203" text="Name" />
@@ -22,17 +23,20 @@
       </TableView>
       <HBox alignment="CENTER" layoutY="226.0" prefHeight="42.0" prefWidth="494.0" spacing="20.0">
          <children>
-            <Button fx:id="btnGenerateReport" mnemonicParsing="false" prefHeight="26.0" prefWidth="116.0" text="Generate Report" />
-            <Button fx:id="btnReset" mnemonicParsing="false" text="Reset" />
-            <Button fx:id="btnDelete" alignment="CENTER" mnemonicParsing="false" text="Delete" />
-            <Button fx:id="btnUpdate" mnemonicParsing="false" text="Update" />
+            <Button fx:id="btnGenerateReport" mnemonicParsing="false" onAction="#generateReport" prefHeight="26.0" prefWidth="116.0" text="Generate Report" />
+            <Button fx:id="btnReset" mnemonicParsing="false" onAction="#reset" text="Reset" />
+            <Button fx:id="btnDelete" alignment="CENTER" mnemonicParsing="false" onAction="#deleteCustomer" text="Delete" />
+            <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#updateCustomer" text="Update" />
             <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveCustomer" prefHeight="26.0" prefWidth="58.0" text="Save" />
          </children>
       </HBox>
       <HBox layoutX="19.0" layoutY="14.0" prefHeight="26.0" prefWidth="456.0" spacing="55.0">
          <children>
             <Label prefHeight="26.0" prefWidth="71.0" text="customer id" />
-            <Label fx:id="lblcustomerid" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="77.0" text="1" />
+            <Label fx:id="lblcustomerid" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="77.0" text="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
          </children>
       </HBox>
       <HBox layoutX="19.0" layoutY="58.0" prefHeight="26.0" prefWidth="456.0" spacing="55.0">

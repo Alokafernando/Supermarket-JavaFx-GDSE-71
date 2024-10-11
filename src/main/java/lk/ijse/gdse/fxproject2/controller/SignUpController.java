@@ -27,12 +27,9 @@ public class SignUpController {
     @FXML
     void SignUpToDashBoardPage(ActionEvent event) throws Exception {
 
-
            SignupPage.getChildren().clear();
            AnchorPane load = FXMLLoader.load(getClass().getResource("/view/DashBoardController.fxml"));
            SignupPage.getChildren().add(load);
-
-
 
     }
 
